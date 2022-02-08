@@ -20,11 +20,12 @@ function emailValidation ({target : {value}}){
 }
 
 function passValidation ({target : {value}}) {
-   // const specElem = ['`', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')'];
-    if (value.length < 5) {
-        pass.style.borderColor = 'red';
-    } else {
+    const specElem = /[`!@#$%^&*()]/g;
+    
+    if (value.length > 4 && specElem.test(value)) {
         pass.style.borderColor = 'green';
+    } else {
+        pass.style.borderColor = 'red';
     }
 }
 
